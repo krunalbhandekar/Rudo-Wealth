@@ -4,7 +4,10 @@ require("dotenv").config();
 const app=express();
 app.use(express.json());
 
-const connection=require("./config")as number;
+const connection=require("./config");
+const CustomerRoute=require("./routes/CustomerRoute")
+
+app.use("/customer",CustomerRoute)
 
 app.get("/",(req,res)=>{
     return res.status(200).send("HomePage")
